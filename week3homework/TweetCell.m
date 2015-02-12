@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewTopSpace;
@@ -90,14 +91,26 @@
 
 - (void)refreshView:(Tweets *)tweet {
     if (tweet.retweeted) {
-        [self.retweetButton setAlpha:0.5];
-    } else {
         [self.retweetButton setAlpha:1];
+    } else {
+        [self.retweetButton setAlpha:0.5];
     }
     if (tweet.favorited) {
-        [self.favoriteButton setAlpha:0.5];
-    } else {
         [self.favoriteButton setAlpha:1];
+    } else {
+        [self.favoriteButton setAlpha:0.5];
+    }
+    
+    if (tweet.retweeted) {
+        self.retweetView.hidden = NO;
+        self.retweetLabel.text = [NSString stringWithFormat:@"%@ retweeted", tweet.user.name];
+        [self.imageViewTopSpace setConstant:30];
+        [self.viewTopSpace setConstant:30];
+        //self.retweetLabel.textColor = [Utils getTwitterGray];
+    } else {
+        [self.imageViewTopSpace setConstant:8];
+        [self.viewTopSpace setConstant:8];
+        self.retweetView.hidden = YES;
     }
 }
 @end

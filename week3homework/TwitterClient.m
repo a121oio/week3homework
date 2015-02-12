@@ -97,6 +97,79 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     
 }
 
+-(void) postStatus:(NSString *)params {
+    
+    NSDictionary *parameters = @{@"status": params};
+
+    [self POST:@"1.1/statuses/update.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@" %@",responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@" failed to Post");
+        
+    }];
+
+}
+
+-(void) retweet:(NSString *)tweetId completion:(void (^)())completion{
+    
+    NSString *postUrl = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId] ;
+    
+    [self POST: [postUrl  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@" %@",responseObject);
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@" failed to retweet");
+
+    }];
+
+    
+}
+
+-(void) destroy:(NSString *)tweetId completion:(void (^)())completion{
+    
+    [self POST:[NSString stringWithFormat:@"1.1/statuses/destroy/%@.json", tweetId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@" %@",responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@" failed to destroy");
+        
+    }];
+
+    
+}
+
+- (void)favorite:(NSString *)idStr completion:(void (^)(NSError *error))completion {
+    NSString *postUrl = [NSString stringWithFormat:@"1.1/favorites/create.json?id=%@", idStr];
+    
+    [self POST:[postUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"successfully favorited tweet");
+        
+        completion(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failed favorited tweet");
+        completion(error);
+    }];
+}
+
+- (void)unfavorite:(NSString *)idStr completion:(void (^)(NSError *error))completion {
+    NSString *postUrl = [NSString stringWithFormat:@"1.1/favorites/destroy.json?id=%@", idStr];
+    
+    [self POST:[postUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"successfully unfavorited tweet");
+        completion(nil);
+
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(error);
+        NSLog(@"failed unfavorited tweet");
+    }];
+}
+
+
 -(void) homeTimeLineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets,NSError *error))completion{
     [self GET:@"1.1/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *tweets = [Tweets tweetsWithArray:responseObject];
@@ -106,9 +179,10 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(nil,error);
     }];
-    
      
 }
+
+
 
 
 @end

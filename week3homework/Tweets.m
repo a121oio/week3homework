@@ -19,10 +19,12 @@
 //        self.text = dict[@"text"];
         self.user = [[User alloc] initWithDictionary:dict[@"user"]];
         NSString *createdAtString = dict[@"created_at"];
-        
+        self.retweeted = NO;
+        self.favorited = NO;
+        self.IdStr = dict[@"id_str"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
         formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
-        
+        self.retweetIdStr = dict[@"id_str"];
         self.createdAT = [formatter dateFromString:createdAtString];
     }
     return self;

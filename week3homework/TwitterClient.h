@@ -19,6 +19,12 @@
 -(void) openUrl:(NSURL *) url;
 -(void) homeTimeLineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets,NSError *error))completion;
 
+-(void) postStatus:(NSString *)params;
+
+-(void) destroy:(NSString *)tweetId completion:(void (^)())completion;
+-(void) retweet:(NSString *)tweetId completion:(void (^)())completion;;
+-(void) favorite:(NSString *)idStr completion:(void (^)(NSError *error))completion;
+-(void) unfavorite:(NSString *)idStr completion:(void (^)(NSError *error))completion;
 
 
 @end

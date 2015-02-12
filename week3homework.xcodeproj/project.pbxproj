@@ -14,6 +14,8 @@
 		2F5439951A89F53F00777B44 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5439921A89F53F00777B44 /* TweetCell.m */; };
 		2F5439961A89F53F00777B44 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F5439941A89F53F00777B44 /* TweetCell.xib */; };
 		2F54399A1A8A009B00777B44 /* UIView+SuperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5439991A8A009B00777B44 /* UIView+SuperView.m */; };
+		2FBD12D11A8B3A63002CEE06 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD12CF1A8B3A63002CEE06 /* ComposeViewController.m */; };
+		2FBD12D21A8B3A63002CEE06 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FBD12D01A8B3A63002CEE06 /* ComposeViewController.xib */; };
 		2FC473D71A875E33000BD28C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC473D61A875E33000BD28C /* main.m */; };
 		2FC473DA1A875E33000BD28C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC473D91A875E33000BD28C /* AppDelegate.m */; };
 		2FC473E21A875E33000BD28C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC473E11A875E33000BD28C /* Images.xcassets */; };
@@ -48,6 +50,9 @@
 		2F5439941A89F53F00777B44 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
 		2F5439981A8A009B00777B44 /* UIView+SuperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SuperView.h"; sourceTree = "<group>"; };
 		2F5439991A8A009B00777B44 /* UIView+SuperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SuperView.m"; sourceTree = "<group>"; };
+		2FBD12CE1A8B3A63002CEE06 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		2FBD12CF1A8B3A63002CEE06 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		2FBD12D01A8B3A63002CEE06 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		2FC473D11A875E33000BD28C /* week3homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = week3homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC473D51A875E33000BD28C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FC473D61A875E33000BD28C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,12 +158,15 @@
 				2F469BD21A88354200B4FACA /* Models */,
 				2F54398C1A89F41D00777B44 /* View */,
 				2FC473D81A875E33000BD28C /* AppDelegate.h */,
+				2FC473D91A875E33000BD28C /* AppDelegate.m */,
 				2FC473FA1A8762BF000BD28C /* LoginViewController.h */,
 				2FC473FB1A8762BF000BD28C /* LoginViewController.m */,
-				2FC474021A8767AC000BD28C /* TwitterClient.h */,
 				2FC473FC1A8762BF000BD28C /* LoginViewController.xib */,
+				2FC474021A8767AC000BD28C /* TwitterClient.h */,
 				2FC474031A8767AC000BD28C /* TwitterClient.m */,
-				2FC473D91A875E33000BD28C /* AppDelegate.m */,
+				2FBD12CE1A8B3A63002CEE06 /* ComposeViewController.h */,
+				2FBD12CF1A8B3A63002CEE06 /* ComposeViewController.m */,
+				2FBD12D01A8B3A63002CEE06 /* ComposeViewController.xib */,
 				2F469BD61A88736600B4FACA /* tweetsViewController.h */,
 				2F469BD71A88736600B4FACA /* tweetsViewController.m */,
 				2F469BD81A88736600B4FACA /* tweetsViewController.xib */,
@@ -286,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F469BDA1A88736600B4FACA /* tweetsViewController.xib in Resources */,
+				2FBD12D21A8B3A63002CEE06 /* ComposeViewController.xib in Resources */,
 				2F5439961A89F53F00777B44 /* TweetCell.xib in Resources */,
 				2FC473E51A875E33000BD28C /* LaunchScreen.xib in Resources */,
 				2FC473E21A875E33000BD28C /* Images.xcassets in Resources */,
@@ -343,6 +352,7 @@
 				2FC474041A8767AC000BD28C /* TwitterClient.m in Sources */,
 				2FC473DA1A875E33000BD28C /* AppDelegate.m in Sources */,
 				2F469BD51A88356200B4FACA /* User.m in Sources */,
+				2FBD12D11A8B3A63002CEE06 /* ComposeViewController.m in Sources */,
 				2F469BD91A88736600B4FACA /* tweetsViewController.m in Sources */,
 				2F469BD11A88353900B4FACA /* Tweets.m in Sources */,
 				2FC473D71A875E33000BD28C /* main.m in Sources */,

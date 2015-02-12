@@ -12,6 +12,8 @@
 #import "Tweets.h"
 #import "TweetCell.h"
 #import "UIView+SuperView.h"
+#import "ComposeViewController.h"
+#import "MTLJSONAdapter.h"
 
 
 
@@ -71,6 +73,22 @@
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+
+-(void) onPostButton{
+    
+    ComposeViewController *cv = [[ComposeViewController alloc]init];
+    
+    UINavigationController *navBar = [[UINavigationController alloc]initWithRootViewController:cv];
+    
+    [self presentViewController:navBar animated:YES completion:nil];
+    
+    
+}
+
 -(void) refreshList{
     
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
@@ -113,7 +131,9 @@
     
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
     [cell.replyButton addTarget:self action:@selector(replyButtonClicked:) forControlEvents:UIControlEventTouchDown];
+    
     [cell.retweetButton addTarget:self action:@selector(retweetButtonClicked:) forControlEvents:UIControlEventTouchDown];
+    
     [cell.favoriteButton addTarget:self action:@selector(favoriteButtonClicked:) forControlEvents:UIControlEventTouchDown];
     
     
@@ -124,89 +144,97 @@
         [self configureCell:cell atIndexPath:indexPath];
         
     }
-    
+    [cell refreshView:cell.tweet];
    
     return cell;
 }
 
 
-/*
+
 - (void)replyButtonClicked:(id)sender {
     TweetCell *cell = (TweetCell *)[sender findSuperViewWithClass:[TweetCell class]];
     
     NSIndexPath *indexPath = [self.twTableView indexPathForCell: cell];
     
-    //ComposeViewController *composeViewController = [[ComposeViewController alloc] init];
-    //composeViewController.replyTo = self.tweets[indexPath.row];
+    ComposeViewController *composeViewController = [[ComposeViewController alloc] init];
+    composeViewController.replyTo = self.tweets[indexPath.row];
     UINavigationController *navBar = [[UINavigationController alloc] initWithRootViewController:composeViewController];
     [self presentViewController:navBar animated:YES completion:nil];
+    
 }
+
 
 - (void)retweetButtonClicked:(id)sender {
     TweetCell *cell = (TweetCell *)[sender findSuperViewWithClass:[TweetCell class]];
     NSIndexPath *indexPath = [self.twTableView indexPathForCell: cell];
     
     Tweets *currentTweet = self.tweets[indexPath.row];
-    TwitterClient *client = [TwitterClient instance];
+    TwitterClient *client = [TwitterClient sharedInstance];
+    NSString *retweetId = [currentTweet user].dictionary[@"id_str"];
+    
     if (currentTweet.retweeted) {
-        NSNumber *retweetId = currentTweet.id;
-        if (currentTweet.retweetedStatus) {
-            retweetId = currentTweet.retweetedStatus.id;
+        
+        
+        [client destroy:currentTweet.retweetIdStr completion:nil];
+        currentTweet.retweeted = NO;
+        currentTweet.retweetCount -= 1;
+        currentTweet.retweetIdStr =@"";
+        
+        } else {
+            
+            [client retweet:retweetId  completion:nil];
+            
+            currentTweet.retweetIdStr = retweetId;
+            currentTweet.retweeted = YES;
+            currentTweet.retweetCount += 1;
         }
-        [client destroyWithId:retweetId
-                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                          NSLog(@"[HomeViewController retweet destroy] success");
-                          currentTweet.retweeted = NO;
-                          currentTweet.retweetCount -= 1;
-                          [cell refreshView:currentTweet];
-                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                          NSLog(@"[HomeViewController retweet destroy] failure: %@", error.description);
-                      }];
-    } else {
-        [client retweetWithId:currentTweet.id
-                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                          NSLog(@"[HomeViewController retweet] success");
-                          currentTweet.retweeted = YES;
-                          currentTweet.retweetCount += 1;
-                          currentTweet.retweetedStatus = [MTLJSONAdapter modelOfClass:Tweet.class fromJSONDictionary:responseObject error:nil];
-                          [cell refreshView:currentTweet];
-                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                          NSLog(@"[HomeViewController retweet] failure: %@", error.description);
-                      }];
-    }
+    [cell refreshView:currentTweet];
+    
 }
+
+
+//- (void)updateCount {
+//    self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+//    self.retweetWordLabel.text = (self.tweet.retweetCount > 2) ? @"RETWEETS" : @"RETWEET";
+//    self.retweetWordLabel.textColor = [Utils getTwitterGray];
+//    
+//    self.favoritesCountLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favouritesCount];
+//    self.favoritesWordLabel.text = (self.tweet.favouritesCount > 2) ? @"FAVORITES" : @"FAVORITE";
+//    self.favoritesWordLabel.textColor = [Utils getTwitterGray];
+//    
+//    if (self.tweet.retweeted) {
+//        [self.retweetButton setAlpha:0.5];
+//    } else {
+//        [self.retweetButton setAlpha:1];
+//    }
+//    if (self.tweet.favorited) {
+//        [self.favoriteButton setAlpha:0.5];
+//    } else {
+//        [self.favoriteButton setAlpha:1];
+//    }
+//}
 
 
 - (void)favoriteButtonClicked:(id)sender {
     TweetCell *cell = (TweetCell *)[sender findSuperViewWithClass:[TweetCell class]];
-    NSIndexPath *indexPath = [self.tableView indexPathForCell: cell];
+    NSIndexPath *indexPath = [self.twTableView indexPathForCell: cell];
     
-    Tweet *currentTweet = self.tweets[indexPath.row];
-    TwitterClient *client = [TwitterClient instance];
-    if (currentTweet.favorited) {
-        [client removeFavoriteWithId:currentTweet.id
-                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                 NSLog(@"[HomeViewController unfavorite] success");
-                                 currentTweet.favorited = NO;
-                                 currentTweet.favouritesCount -= 1;
-                                 [cell refreshView:currentTweet];
-                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                 NSLog(@"[HomeViewController unfavorite] failure: %@", error.description);
-                             }];
-    } else {
-        [client favoriteWithId:currentTweet.id
-                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                           NSLog(@"[HomeViewController favorite] success");
-                           currentTweet.favorited = YES;
-                           currentTweet.favouritesCount += 1;
-                           [cell refreshView:currentTweet];
-                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                           NSLog(@"[HomeViewController favorite] failure: %@", error.description);
-                       }];
-    }
-}
-*/
+    
+    TwitterClient *client = [TwitterClient sharedInstance];
+    [self.tweets[indexPath.row] setFavorited:! [self.tweets[indexPath.row] favorited]];
+    if ([self.tweets[indexPath.row] favorited]) {
+        [client favorite:[self.tweets[indexPath.row] IdStr] completion:^(NSError *error) {
+            NSLog(@"[HomeViewController favorite] failure: %@", error.description);
+        }];
+        } else {
+            [client unfavorite:[self.tweets[indexPath.row] IdStr] completion:^(NSError *error) {
+                NSLog(@"[HomeViewController favorite] failure: %@", error.description);
+            }];
 
+                }
+    
+    [cell refreshView:self.tweets[indexPath.row]];
+}
 
 /*
 #pragma mark - Navigation

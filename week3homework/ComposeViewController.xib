@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController">
+            <connections>
+                <outlet property="imageView" destination="btc-bv-MRT" id="d7P-UT-y1i"/>
+                <outlet property="nameLabel" destination="VbT-Se-Grj" id="zJK-uj-QYn"/>
+                <outlet property="placeholderLabel" destination="rKf-2K-Vu9" id="SRP-uI-yjv"/>
+                <outlet property="screenNameLabel" destination="OCm-wp-b4H" id="YKg-hh-Eet"/>
+                <outlet property="textView" destination="7zH-Te-qpF" id="BTP-GP-Gy0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="btc-bv-MRT">
+                    <rect key="frame" x="10" y="20" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="TUQ-pA-1zJ"/>
+                        <constraint firstAttribute="width" constant="50" id="v2w-4c-QK1"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbT-Se-Grj">
+                    <rect key="frame" x="70" y="20" width="206" height="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@screenname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCm-wp-b4H">
+                    <rect key="frame" x="70" y="42" width="240" height="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What's happening?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKf-2K-Vu9">
+                    <rect key="frame" x="15" y="87" width="149" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zH-Te-qpF">
+                    <rect key="frame" x="10" y="80" width="290" height="140"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="EIg-lr-QnN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7zH-Te-qpF" firstAttribute="top" secondItem="btc-bv-MRT" secondAttribute="bottom" constant="10" id="99h-xq-hdJ"/>
+                <constraint firstItem="btc-bv-MRT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="D5a-MQ-meZ"/>
+                <constraint firstItem="OCm-wp-b4H" firstAttribute="leading" secondItem="btc-bv-MRT" secondAttribute="trailing" constant="10" id="E8z-ZO-r0q"/>
+                <constraint firstAttribute="trailing" secondItem="VbT-Se-Grj" secondAttribute="trailing" constant="44" id="GMY-nD-Fvv"/>
+                <constraint firstItem="VbT-Se-Grj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="IPe-V9-ZSE"/>
+                <constraint firstItem="OCm-wp-b4H" firstAttribute="top" secondItem="VbT-Se-Grj" secondAttribute="bottom" constant="5" id="J0D-c1-z3F"/>
+                <constraint firstAttribute="trailing" secondItem="7zH-Te-qpF" secondAttribute="trailing" constant="20" id="VLj-4g-gZZ"/>
+                <constraint firstItem="btc-bv-MRT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="bCZ-qh-qwz"/>
+                <constraint firstAttribute="trailing" secondItem="OCm-wp-b4H" secondAttribute="trailing" constant="10" id="dZV-lM-BoJ"/>
+                <constraint firstItem="7zH-Te-qpF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="qel-dA-jdl"/>
+                <constraint firstItem="VbT-Se-Grj" firstAttribute="leading" secondItem="btc-bv-MRT" secondAttribute="trailing" constant="10" id="zpi-pB-tKM"/>
+            </constraints>
+            <point key="canvasLocation" x="92" y="60"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
