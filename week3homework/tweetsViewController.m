@@ -14,7 +14,7 @@
 #import "UIView+SuperView.h"
 #import "ComposeViewController.h"
 #import "MTLJSONAdapter.h"
-
+#import "TweetViewController.h"
 
 
 @interface tweetsViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -73,6 +73,18 @@
     
 }
 
+- (void)didReply:(Tweets *)tweet {
+   
+}
+
+- (void)didRetweet:(BOOL)didRetweet {
+    [self.twTableView reloadData];
+}
+
+- (void)didFavorite:(BOOL)didFavorite {
+    [self.twTableView reloadData];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewAutomaticDimension;
@@ -126,6 +138,17 @@
 - (void)configureCell:(TweetCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     cell.tweet = self.tweets[indexPath.row];
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // unhighlight selection
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    TweetViewController *vc = [[TweetViewController alloc] init];
+    vc.delegate = self;
+    vc.tweet = self.tweets[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TweetViewController.h"
 
 
-@interface tweetsViewController : UIViewController
+@interface tweetsViewController : UIViewController<TweetViewControllerDelegate>
+
 @end

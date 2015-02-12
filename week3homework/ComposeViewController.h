@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweets.h"
+@protocol ComposeViewControllerDelegate <NSObject>
+
+- (void)didTweet:(Tweets *)tweet;
+
+@optional
+- (void)didTweetSuccessfully;
+
+@end
 
 
 
 @interface ComposeViewController : UIViewController <UITextViewDelegate>
 
 @property (strong, nonatomic) Tweets *replyTo;
+@property (nonatomic, strong) Tweets *replyToTweet;
+
+@property (nonatomic, weak) id <ComposeViewControllerDelegate> delegate;
 
 @end
