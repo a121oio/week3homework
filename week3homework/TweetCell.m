@@ -10,7 +10,7 @@
 //#import "ComposeViewController.h"
 #import "NSDate+DateTools.h"
 #import "UIImageView+AFNetworking.h"
-
+#import "User.h"
 
 
 
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-
+@property (weak,nonatomic) User *user;
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewTopSpace;
@@ -41,6 +41,9 @@
     [layer setMasksToBounds:YES];
     [layer setCornerRadius:7.0];
 }
+- (IBAction)profileClick:(id)sender {
+    [self.delegate onProfile:_user];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
@@ -53,7 +56,8 @@
     UIImage *replyIcon = [UIImage imageNamed:@"ReplyIcon"];
     UIImage *retweetIcon = [UIImage imageNamed:@"RetweetIcon"];
     UIImage *favIcon = [UIImage imageNamed:@"FavIcon"];
-
+    //self.tweet = tweet
+    self.user = [tweet user];
     self.textLabel.text = [tweet text];
     self.nameLabel.text = [tweet user].name;
     self.screenNameLabel.text = [NSString stringWithFormat:@"@%@",[tweet user].screenName];
@@ -85,7 +89,8 @@
 
     [self.favoriteButton setTitle:@"" forState:UIControlStateNormal];
     [self.favoriteButton setBackgroundImage:favIcon forState:UIControlStateNormal];
-
+    
+    
     [self refreshView:tweet];
 }
 

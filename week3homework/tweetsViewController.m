@@ -15,9 +15,9 @@
 #import "ComposeViewController.h"
 #import "MTLJSONAdapter.h"
 #import "TweetViewController.h"
+#import "ProfileViewController.h"
 
-
-@interface tweetsViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface tweetsViewController () <UITableViewDelegate,UITableViewDataSource,TweetCellDelegate>
 
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *twTableView;
@@ -73,6 +73,12 @@
     
 }
 
+- (void)onProfile:(User *)user {
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    [pvc setUser:user];
+    [self.navigationController pushViewController:pvc animated:YES];
+}
+
 - (void)didReply:(Tweets *)tweet {
    
 }
@@ -104,7 +110,7 @@
 -(void) refreshList{
     
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
-        
+
         if(tweets == nil){
             
         } else {
@@ -168,7 +174,7 @@
         
     }
     [cell refreshView:cell.tweet];
-   
+    cell.delegate = self;
     return cell;
 }
 

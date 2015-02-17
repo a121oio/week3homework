@@ -29,7 +29,10 @@ NSString * const UserDidLogoutNotification = @"UserDidLogoutNotification";
         self.screenName = dict[@"screen_name"];
         self.profileImageUrl = dict[@"profile_image_url"];
         self.tagline = dict[@"description"];
-
+        self.bannerUrl = dict[@"profile_banner_url"];
+        self.tweetCount = [dict[@"statuses_count"] integerValue];
+        self.friendCount = [dict[@"friends_count"] integerValue];
+        self.followerCount = [dict[@"followers_count"] integerValue];
     }
     
     return self;

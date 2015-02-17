@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 #import "tweetsViewController.h"
+#import "MenuViewController.h"
 
 
 @interface LoginViewController ()
@@ -23,12 +24,11 @@
             //modally present tweets view
             NSLog(@"User name %@",user.name);
             
-            tweetsViewController *tw = [[tweetsViewController alloc] init];
+            MenuViewController *mv = [[MenuViewController alloc] init];
 
-            UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:tw];
-            nv.title = @"Twitter";
+            mv.title = @"Twitter";
             
-            [self presentViewController:nv animated:YES completion:nil ];
+            [self presentViewController:mv animated:YES completion:nil ];
             
             
             

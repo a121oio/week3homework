@@ -170,6 +170,29 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 }
 
 
+- (void)mentionsTimelineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    [self GET:@"1.1/statuses/mentions_timeline.json?include_my_retweet=1" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //        NSLog([NSString stringWithFormat:@"mentions timeline: %@", responseObject]);
+        NSArray *tweets = [Tweets tweetsWithArray:responseObject];
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+}
+
+
+- (void)userTimelineWithParams:(NSDictionary *)params user:(User *)user completion:(void (^)(NSArray *tweets, NSError *error))completion {
+    User *forUser = user ? user : [User currentUser];
+    NSString *getUrl = [NSString stringWithFormat:@"1.1/statuses/user_timeline.json?count=20&screen_name=%@", forUser.screenName];
+    [self GET:getUrl parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //        NSLog([NSString stringWithFormat:@"user timeline: %@", responseObject]);
+        NSArray *tweets = [Tweets tweetsWithArray:responseObject];
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+}
+
 -(void) homeTimeLineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *tweets,NSError *error))completion{
     [self GET:@"1.1/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *tweets = [Tweets tweetsWithArray:responseObject];

@@ -13,28 +13,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-4e-jGx">
-                        <rect key="frame" x="11" y="33" width="50" height="50"/>
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-4e-jGx">
+                        <rect key="frame" x="11" y="34" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="RAv-l7-MaY"/>
                             <constraint firstAttribute="width" constant="50" id="aj4-VY-7SA"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6i-4B-IH4">
-                        <rect key="frame" x="68" y="33" width="242" height="90"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6i-4B-IH4">
+                        <rect key="frame" x="68" y="34" width="242" height="90"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Message goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="OLe-ti-2pz">
-                                <rect key="frame" x="0.0" y="26" width="242" height="33"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="Message goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="OLe-ti-2pz">
+                                <rect key="frame" x="0.0" y="27" width="242" height="33"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCr-vY-Z1R">
-                                <rect key="frame" x="0.0" y="0.0" width="37" height="16"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCr-vY-Z1R">
+                                <rect key="frame" x="0.0" y="1" width="37" height="16"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6z-ih-Ucq">
-                                <rect key="frame" x="0.0" y="69" width="12" height="12"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6z-ih-Ucq">
+                                <rect key="frame" x="0.0" y="70" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="S9n-lS-Yh9"/>
                                     <constraint firstAttribute="width" constant="12" id="tKD-HR-oFE"/>
@@ -43,28 +43,28 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="747" text="@screenname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzm-Dp-viW">
-                                <rect key="frame" x="42" y="0.0" width="173" height="16"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="747" misplaced="YES" text="@screenname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzm-Dp-viW">
+                                <rect key="frame" x="42" y="1" width="173" height="16"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fij-ec-dhb">
-                                <rect key="frame" x="220" y="0.0" width="22" height="16"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" misplaced="YES" text="ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fij-ec-dhb">
+                                <rect key="frame" x="220" y="1" width="22" height="16"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rt8-Xh-q17">
-                                <rect key="frame" x="25" y="69" width="12" height="10"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rt8-Xh-q17">
+                                <rect key="frame" x="25" y="70" width="12" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="JbI-sT-8vG"/>
                                     <constraint firstAttribute="width" constant="12" id="QTu-kw-Ae1"/>
                                 </constraints>
                                 <state key="normal" title="R"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPx-tK-V6P">
-                                <rect key="frame" x="52" y="68" width="12" height="12"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPx-tK-V6P">
+                                <rect key="frame" x="52" y="69" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="1SH-E2-ja1"/>
                                     <constraint firstAttribute="width" constant="12" id="LbC-bO-JXz"/>
@@ -95,17 +95,17 @@
                             <constraint firstItem="pPx-tK-V6P" firstAttribute="top" secondItem="OLe-ti-2pz" secondAttribute="bottom" constant="9" id="y2a-zB-OHp"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44k-o7-AXn">
-                        <rect key="frame" x="10" y="2" width="300" height="20"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="44k-o7-AXn">
+                        <rect key="frame" x="10" y="3" width="300" height="20"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retweet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pE-22-fv8">
-                                <rect key="frame" x="58" y="5" width="45" height="14"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Retweet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pE-22-fv8">
+                                <rect key="frame" x="58" y="6" width="45" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RetweetIcon" translatesAutoresizingMaskIntoConstraints="NO" id="v8z-PN-9qH">
-                                <rect key="frame" x="29" y="5" width="17" height="17"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="RetweetIcon" translatesAutoresizingMaskIntoConstraints="NO" id="v8z-PN-9qH">
+                                <rect key="frame" x="29" y="6" width="17" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="17" id="92w-Tc-gjs"/>
                                     <constraint firstAttribute="height" constant="17" id="Noz-Cz-ZSK"/>
@@ -120,6 +120,15 @@
                             <constraint firstItem="v8z-PN-9qH" firstAttribute="leading" secondItem="44k-o7-AXn" secondAttribute="leading" constant="29" id="yGA-dD-QvH"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4K-Fa-o3B">
+                        <rect key="frame" x="11" y="34" width="50" height="51"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="profileClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="X6j-Iy-jlY"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="O6i-4B-IH4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="33" id="KVr-Ko-bfI"/>
@@ -138,6 +147,7 @@
                 <outlet property="imageView" destination="vxL-4e-jGx" id="vmt-Fa-XyN"/>
                 <outlet property="imageViewTopSpace" destination="mwm-Vq-zOB" id="4ct-w7-k9H"/>
                 <outlet property="nameLabel" destination="TCr-vY-Z1R" id="9kt-Xy-5Dp"/>
+                <outlet property="profile" destination="z4K-Fa-o3B" id="eJ9-8s-C6u"/>
                 <outlet property="replyButton" destination="k6z-ih-Ucq" id="Z0v-sW-wue"/>
                 <outlet property="retweetButton" destination="Rt8-Xh-q17" id="G08-tg-xJK"/>
                 <outlet property="retweetLabel" destination="7pE-22-fv8" id="IR1-Kp-EhQ"/>
@@ -147,6 +157,7 @@
                 <outlet property="timeLabel" destination="fij-ec-dhb" id="CUq-2s-0LS"/>
                 <outlet property="viewTopSpace" destination="KVr-Ko-bfI" id="Zv2-TH-urF"/>
             </connections>
+            <point key="canvasLocation" x="324" y="131.5"/>
         </tableViewCell>
     </objects>
     <resources>
