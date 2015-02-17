@@ -1,6 +1,25 @@
 # week3homework
 Time spent: <16hr>
 Features
+
+Hamburger menu
+
+   [x]  Dragging anywhere in the view should reveal the menu.
+   [x]  The menu should include links to your profile, the home timeline, and the mentions view.
+   [x]  The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+
+Profile page
+
+    [x] Contains the user header view
+    [x] Contains a section with the users basic stats: # tweets, # following, # followers
+    [ ] Optional: Implement the paging view for the user description.
+    [ ] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+    [ ] Optional: Pulling down the profile page should blur and resize the header image.
+
+Home Timeline
+
+    [x] Tapping on a user image should bring up that user's profile page
+
 Required
 
     [x] User can sign in using OAuth login flow
@@ -22,3 +41,4 @@ Optional
     [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ![Video Walkthrough](https://github.com/a121oio/week3homework/blob/master/record.gif)
+![Video Walkthrough](https://github.com/a121oio/week3homework/blob/master/record2.gif)
